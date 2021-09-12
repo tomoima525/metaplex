@@ -20,6 +20,7 @@ yarn-error.log*
 js/.eslintcache
 target
 .env
+js/**/.env
 .vscode
 bin
 config.json
