@@ -11,23 +11,24 @@ import { MetaProvider } from './contexts/meta';
 import { CoingeckoProvider } from './contexts/coingecko';
 
 export const Providers: FC = ({ children }) => {
+  console.log('======', { env: process.env });
   return (
     <ConnectionProvider>
       <WalletProvider>
-          <AccountsProvider>
-            <CoingeckoProvider>
-              <StoreProvider
-                ownerAddress={process.env.NEXT_PUBLIC_STORE_OWNER_ADDRESS}
-                storeAddress={process.env.NEXT_PUBLIC_STORE_ADDRESS}
-              >
-                <MetaProvider>
-                  <ConfettiProvider>
-                    <AppLayout>{children}</AppLayout>
-                  </ConfettiProvider>
-                </MetaProvider>
-              </StoreProvider>
-            </CoingeckoProvider>
-          </AccountsProvider>
+        <AccountsProvider>
+          <CoingeckoProvider>
+            <StoreProvider
+              ownerAddress={process.env.NEXT_PUBLIC_STORE_OWNER_ADDRESS}
+              storeAddress={process.env.NEXT_PUBLIC_STORE_ADDRESS}
+            >
+              <MetaProvider>
+                <ConfettiProvider>
+                  <AppLayout>{children}</AppLayout>
+                </ConfettiProvider>
+              </MetaProvider>
+            </StoreProvider>
+          </CoingeckoProvider>
+        </AccountsProvider>
       </WalletProvider>
     </ConnectionProvider>
   );
